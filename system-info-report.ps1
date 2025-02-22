@@ -46,7 +46,7 @@ Get-CimInstance Win32_OperatingSystem | Select-Object Caption, Version, BuildNum
 "============================================" | Out-File -FilePath $filename -Append -Encoding utf8
 "Memory Info:" | Out-File -FilePath $filename -Append -Encoding utf8
 "============================================" | Out-File -FilePath $filename -Append -Encoding utf8
-Get-CimInstance Win32_PhysicalMemory | Out-File -FilePath $filename -Append -Encoding utf8
+Get-CimInstance Win32_PhysicalMemory | Select-Object Capacity, ConfiguredClockSpeed, Speed, FormFactor, Manufacturer, Version, PoweredOn | Out-File -FilePath $filename -Append -Encoding utf8
 
 "============================================" | Out-File -FilePath $filename -Append -Encoding utf8
 "Disk Info:" | Out-File -FilePath $filename -Append -Encoding utf8
